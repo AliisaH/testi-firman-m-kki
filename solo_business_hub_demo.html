@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLO BUSINESS HUB DEMO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        neutral: {
+                            50: '#f9fafb',
+                            100: '#f3f4f6',
+                            200: '#e5e7eb',
+                            300: '#d1d5db',
+                            800: '#1f2937',
+                            900: '#111827',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e5e7eb;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d1d5db;
+        }
+        .task-completed {
+            text-decoration: line-through;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body class="bg-neutral-50 text-neutral-900 font-sans h-screen flex overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white border-r border-neutral-200 flex flex-col hidden md:flex z-10 relative">
+        <div class="p-6">
+            <h1 class="text-sm font-bold tracking-widest text-neutral-800 uppercase">Solo Business Hub</h1>
+            <span class="text-xs text-neutral-400 font-medium">DEMO ENVIRONMENT</span>
+        </div>
+
+        <nav class="flex-1 px-4 space-y-1">
+            <a href="#" class="flex items-center gap-3 px-3 py-2 bg-neutral-100 text-neutral-900 rounded-lg text-sm font-medium transition-colors">
+                <i class="ph ph-calendar-star text-lg"></i> TODAY
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 rounded-lg text-sm font-medium transition-colors">
+                <i class="ph ph-target text-lg"></i> PLAN
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 rounded-lg text-sm font-medium transition-colors">
+                <i class="ph ph-currency-circle-dollar text-lg"></i> SALES
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 rounded-lg text-sm font-medium transition-colors">
+                <i class="ph ph-briefcase text-lg"></i> CLIENT WORK
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 rounded-lg text-sm font-medium transition-colors">
+                <i class="ph ph-megaphone text-lg"></i> MARKETING
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 rounded-lg text-sm font-medium transition-colors">
+                <i class="ph ph-chart-line-up text-lg"></i> FINANCE
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 rounded-lg text-sm font-medium transition-colors">
+                <i class="ph ph-calendar-blank text-lg"></i> CALENDAR
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-neutral-200">
+            <a href="#" class="flex items-center gap-3 px-3 py-2 text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 rounded-lg text-sm font-medium transition-colors">
+                <i class="ph ph-gear text-lg"></i> SETTINGS
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-full overflow-y-auto">
+        <!-- Mobile Header (Visible only on small screens) -->
+        <header class="md:hidden bg-white border-b border-neutral-200 p-4 flex items-center justify-between">
+            <h1 class="text-sm font-bold tracking-widest text-neutral-800 uppercase">Solo Hub</h1>
+            <button class="text-neutral-600 p-2"><i class="ph ph-list text-xl"></i></button>
+        </header>
+
+        <div class="p-8 md:p-12 max-w-6xl mx-auto w-full">
+            
+            <header class="mb-10">
+                <h2 class="text-3xl font-semibold text-neutral-900 tracking-tight">Good morning!</h2>
+                <p class="text-neutral-500 mt-1">Here is your business at a glance.</p>
+            </header>
+
+            <!-- Dashboard Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Left Column: Schedule & Tasks -->
+                <div class="lg:col-span-2 space-y-8">
+                    
+                    <!-- Section 1: Schedule -->
+                    <section>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-sm font-semibold tracking-wide text-neutral-500 uppercase">Today's Schedule</h3>
+                            <button class="text-xs font-medium text-blue-600 hover:text-blue-800 transition-colors">View Calendar</button>
+                        </div>
+                        <div class="bg-white rounded-xl border border-neutral-200 shadow-sm overflow-hidden">
+                            <div class="divide-y divide-neutral-100">
+                                <!-- Meeting 1 -->
+                                <div class="p-4 flex gap-4 items-start hover:bg-neutral-50 transition-colors">
+                                    <div class="flex flex-col items-center justify-center min-w-[60px] text-center">
+                                        <span class="text-xs font-semibold text-neutral-400 uppercase">10:00</span>
+                                        <span class="text-xs text-neutral-400">AM</span>
+                                    </div>
+                                    <div class="w-1 h-10 bg-blue-500 rounded-full"></div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-neutral-900">Strategy Sync</h4>
+                                        <p class="text-xs text-neutral-500 mt-0.5">Client A (Tech Corp)</p>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <button class="p-2 text-neutral-400 hover:text-neutral-800 transition-colors rounded-md hover:bg-neutral-200" title="Join Meeting">
+                                            <i class="ph ph-video-camera text-lg"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- Meeting 2 -->
+                                <div class="p-4 flex gap-4 items-start hover:bg-neutral-50 transition-colors">
+                                    <div class="flex flex-col items-center justify-center min-w-[60px] text-center">
+                                        <span class="text-xs font-semibold text-neutral-400 uppercase">13:30</span>
+                                        <span class="text-xs text-neutral-400">PM</span>
+                                    </div>
+                                    <div class="w-1 h-10 bg-green-500 rounded-full"></div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-neutral-900">Project Kickoff</h4>
+                                        <p class="text-xs text-neutral-500 mt-0.5">Design Studio Ltd</p>
+                                    </div>
+                                </div>
+                                <!-- Meeting 3 -->
+                                <div class="p-4 flex gap-4 items-start hover:bg-neutral-50 transition-colors">
+                                    <div class="flex flex-col items-center justify-center min-w-[60px] text-center">
+                                        <span class="text-xs font-semibold text-neutral-400 uppercase">15:00</span>
+                                        <span class="text-xs text-neutral-400">PM</span>
+                                    </div>
+                                    <div class="w-1 h-10 bg-purple-500 rounded-full"></div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-neutral-900">Deep Work Block</h4>
+                                        <p class="text-xs text-neutral-500 mt-0.5">Proposal writing</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Section 2: Needs Your Attention -->
+                    <section>
+                        <h3 class="text-sm font-semibold tracking-wide text-neutral-500 uppercase mb-4">Needs Your Attention</h3>
+                        <div class="space-y-3" id="task-list">
+                            <!-- Task 1 -->
+                            <div class="group flex items-center justify-between p-4 bg-white rounded-xl border border-red-200 shadow-sm hover:border-red-300 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                                    <div>
+                                        <p class="text-sm font-medium text-neutral-900 task-text">Send proposal to Tech Corp</p>
+                                        <p class="text-xs text-neutral-500 mt-0.5">Overdue • Sales</p>
+                                    </div>
+                                </div>
+                                <button class="complete-btn px-3 py-1.5 text-xs font-medium text-neutral-600 bg-neutral-100 hover:bg-neutral-200 rounded-md transition-colors border border-neutral-200 shadow-sm">
+                                    Complete
+                                </button>
+                            </div>
+
+                            <!-- Task 2 -->
+                            <div class="group flex items-center justify-between p-4 bg-white rounded-xl border border-orange-200 shadow-sm hover:border-orange-300 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rounded-full bg-orange-500"></div>
+                                    <div>
+                                        <p class="text-sm font-medium text-neutral-900 task-text">Approve Q3 VAT calculation</p>
+                                        <p class="text-xs text-neutral-500 mt-0.5">Due today • Finance</p>
+                                    </div>
+                                </div>
+                                <button class="complete-btn px-3 py-1.5 text-xs font-medium text-neutral-600 bg-neutral-100 hover:bg-neutral-200 rounded-md transition-colors border border-neutral-200 shadow-sm">
+                                    Complete
+                                </button>
+                            </div>
+
+                             <!-- Task 3 -->
+                             <div class="group flex items-center justify-between p-4 bg-white rounded-xl border border-neutral-200 shadow-sm hover:border-neutral-300 transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                    <div>
+                                        <p class="text-sm font-medium text-neutral-900 task-text">Follow up with lost lead (John Doe)</p>
+                                        <p class="text-xs text-neutral-500 mt-0.5">Client Work</p>
+                                    </div>
+                                </div>
+                                <button class="complete-btn px-3 py-1.5 text-xs font-medium text-neutral-600 bg-neutral-100 hover:bg-neutral-200 rounded-md transition-colors border border-neutral-200 shadow-sm">
+                                    Complete
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- Right Column: Quick View -->
+                <div class="lg:col-span-1 space-y-6">
+                    <h3 class="text-sm font-semibold tracking-wide text-neutral-500 uppercase mb-2">Sales & Finance Quick View</h3>
+                    
+                    <!-- Stat Card 1 -->
+                    <div class="p-5 bg-white rounded-xl border border-neutral-200 shadow-sm">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-xs font-medium text-neutral-500 uppercase">Monthly Billing Target</span>
+                            <i class="ph ph-trend-up text-green-500 text-lg"></i>
+                        </div>
+                        <div class="flex items-baseline gap-2">
+                            <h4 class="text-2xl font-bold text-neutral-900">85%</h4>
+                            <span class="text-xs text-neutral-500">reached</span>
+                        </div>
+                        <div class="w-full bg-neutral-100 rounded-full h-1.5 mt-4 overflow-hidden">
+                            <div class="bg-neutral-900 h-1.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                        <p class="text-xs text-neutral-500 mt-2">€1,500 gap to target</p>
+                    </div>
+
+                    <!-- Stat Card 2 -->
+                    <div class="p-5 bg-white rounded-xl border border-neutral-200 shadow-sm">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-xs font-medium text-neutral-500 uppercase">Pending Invoices</span>
+                            <i class="ph ph-receipt text-orange-500 text-lg"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-neutral-900">2</h4>
+                        <p class="text-xs text-neutral-500 mt-1">Totaling €4,250.00</p>
+                        <div class="mt-4 pt-4 border-t border-neutral-100">
+                            <a href="#" class="text-xs font-medium text-blue-600 hover:text-blue-800 transition-colors">Review invoices &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Stat Card 3 -->
+                    <div class="p-5 bg-white rounded-xl border border-neutral-200 shadow-sm">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="text-xs font-medium text-neutral-500 uppercase">Cash Runway</span>
+                            <i class="ph ph-chart-bar text-blue-500 text-lg"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-neutral-900">4.5 mo</h4>
+                        <p class="text-xs text-neutral-500 mt-1">Based on fixed burn rate</p>
+                        <div class="mt-4 pt-4 border-t border-neutral-100 flex items-center justify-between">
+                            <span class="text-xs text-neutral-400">Lowest point: Nov 15</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Simple script to handle task completion
+        document.addEventListener('DOMContentLoaded', () => {
+            const completeButtons = document.querySelectorAll('.complete-btn');
+
+            completeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const taskContainer = this.closest('.group');
+                    const taskText = taskContainer.querySelector('.task-text');
+                    const isCompleted = taskText.classList.contains('task-completed');
+
+                    if (!isCompleted) {
+                        // Mark as completed
+                        taskText.classList.add('task-completed');
+                        this.innerHTML = '<i class="ph ph-check text-green-600 font-bold"></i> Done';
+                        this.classList.remove('text-neutral-600', 'bg-neutral-100', 'hover:bg-neutral-200');
+                        this.classList.add('bg-green-50', 'border-green-200');
+                        
+                        // Subtle fade out effect on the container border
+                        taskContainer.classList.remove('border-red-200', 'border-orange-200', 'hover:border-red-300', 'hover:border-orange-300');
+                        taskContainer.classList.add('border-neutral-200', 'opacity-70');
+                    } else {
+                        // Revert to uncompleted (optional, but good for testing)
+                        taskText.classList.remove('task-completed');
+                        this.innerText = 'Complete';
+                        this.classList.add('text-neutral-600', 'bg-neutral-100', 'hover:bg-neutral-200');
+                        this.classList.remove('bg-green-50', 'border-green-200');
+                        taskContainer.classList.remove('opacity-70');
+                        // Note: To restore the original border colors properly in a real app, 
+                        // you'd want to store their priority state, but keeping it simple for the demo.
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
